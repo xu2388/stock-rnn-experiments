@@ -1,0 +1,62 @@
+﻿
+============================================================
+实验 1: AWD-LSTM
+============================================================
+数据: train=5959 val=1277 test=1278 features=5 window=20
+模型参数量: 67,009
+
+=== 训练 AWD-LSTM（40 epochs, device=cpu）===
+  epoch  1/40  train=0.24166  val=0.01229  ★best  lr=1.00e-03
+python : Traceback (most recent call last):
+At line:15 char:5129
++ ... 大三上的资料\假期学习记录\stock_rnn_experiments" ; python run_all.py 2>&1 | Tee-O ...
++                                            ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\大三上的资料\假期学习记录\stock_rnn_experiments\run_all.py", line 99, in <module>
+    run_all()
+    ~~~~~~~^^
+  File "D:\大三上的资料\假期学习记录\stock_rnn_experiments\run_all.py", line 24, in run_all
+    results["AWD-LSTM"] = run_awd()
+                          ~~~~~~~^^
+  File "D:\大三上的资料\假期学习记录\stock_rnn_experiments\exp1_awd_lstm.py", line 141, in main
+    model, train_losses, val_losses = train_model(
+                                      ~~~~~~~~~~~^
+        model, train_loader, val_loader,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        n_epochs=40, lr=1e-3, weight_decay=1e-5,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        device=device, model_name="AWD-LSTM", patience=10,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\大三上的资料\假期学习记录\stock_rnn_experiments\common\trainer.py", line 47, in train_model
+    pred = model(xb)
+  File "C:\Python314\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\大三上的资料\假期学习记录\stock_rnn_experiments\exp1_awd_lstm.py", line 109, in forward
+    raw_output, new_h = rnn(raw_output)
+                        ~~~^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "D:\大三上的资料\假期学习记录\stock_rnn_experiments\exp1_awd_lstm.py", line 59, in forward
+    self._setweights()
+    ~~~~~~~~~~~~~~~~^^
+  File "D:\大三上的资料\假期学习记录\stock_rnn_experiments\exp1_awd_lstm.py", line 56, in _setweights
+    setattr(self.module, name_w, w)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\torch\nn\modules\rnn.py", line 222, in __setattr__
+    super().__setattr__(attr, value)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\torch\nn\modules\module.py", line 1992, in __setattr__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: cannot assign 'torch.FloatTensor' as parameter 'weight_hh_l0' (torch.nn.Parameter or None expected)
